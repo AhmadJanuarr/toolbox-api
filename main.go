@@ -24,17 +24,16 @@ func main() {
 
 	cleaner.Start()
 	// Memuat file .env jika ada, jika tidak ada maka kembalikan warning
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Warning: .env file not found, using system defaults")
+	if err := godotenv.Load(); err != nil {
+		log.Println("No .env file found, using system environment variables")
 	}
 
 	// Mengambil router dari routes/router.go
 	router := routes.Route()
 	router.MaxMultipartMemory = 20 << 20 // 20MB
-	env := os.Getenv("PORT")
-	if env == "" {
-		log.Fatal("PORT is not set in the .env file")
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
 	}
 
 	// configuration cors untuk mengizinkan request dari domain tertentu
@@ -50,6 +49,6 @@ func main() {
 
 	// setup middleware cors
 	router.Use(cors.New(config))
-	router.Run(":" + env)
+	router.Run(":" + port)
 
 }
