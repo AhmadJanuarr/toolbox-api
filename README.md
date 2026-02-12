@@ -1,6 +1,4 @@
-## API Documentation
-
-# 📚 API Documentation
+# API Documentation
 
 Base URL: `http://localhost:8080/api/v1`
 
