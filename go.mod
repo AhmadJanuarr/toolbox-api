@@ -1,6 +1,6 @@
 module toolkits
 
-go 1.25.5
+go 1.24.0
 
 require (
 	github.com/chai2010/webp v1.4.0
