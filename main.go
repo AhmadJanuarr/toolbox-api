@@ -41,6 +41,7 @@ func main() {
 	if allowedOrigins == "" {
 		allowedOrigins = "http://localhost:3000"
 	}
+
 	config := cors.DefaultConfig()
 	config.AllowOrigins = []string{allowedOrigins}
 	config.AllowCredentials = true
