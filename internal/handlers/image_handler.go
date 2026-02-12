@@ -28,7 +28,8 @@ var allowedFormats = map[string]bool{
 
 func ConvertImage(c *gin.Context) {
 	// 1. Validasi Input Form (Target Format)
-	targetFormat := strings.ToLower(c.PostForm("targetFormat"))
+
+	targetFormat := strings.ToLower(c.PostForm("format"))
 	if targetFormat == "" || !allowedFormats[targetFormat] {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"status":  http.StatusBadRequest,
