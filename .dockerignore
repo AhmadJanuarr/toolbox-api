@@ -1,0 +1,6 @@
+.git
+.gitignore
+temp/
+# Folder temp tidak perlu dicopy, nanti dibuat otomatis atau dimount
+Dockerfile
+README.md
